@@ -1,4 +1,4 @@
 AttributeBegin
     Shape "plymesh" "string filename" "Marble.ply"
-
+    NamedMaterial "MarbleGlass"
 AttributeEnd

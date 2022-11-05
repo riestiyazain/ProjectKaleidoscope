@@ -1,3 +1,6 @@
-AttributeBegin
+Texture "MarbleSmudge" "float" "imagemap" "string filename" ["marble_texture.png"] ""string mapping" ["spherical"]
 
-AttributeEnd
+MakeNamedMaterial "MarbleGlass"
+    "string type" ["glass"]
+    "texture uroughness" ["MarbleSmudge"]
+    "texture vroughness" ["MarbleSmudge"]
