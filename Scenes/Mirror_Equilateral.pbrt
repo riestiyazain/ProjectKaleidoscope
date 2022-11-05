@@ -1,5 +1,5 @@
-# View from the XY plane (X is the horizontal, Y is the vertical, Z is the depth)
-LookAt 0 0.3 6.5 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going back and the small numbers means going forward)
+# # View from the XY plane (X is the horizontal, Y is the vertical, Z is the depth)
+LookAt 0 0.3 4 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going back and the small numbers means going forward)
        0 0 0  # look at point [X,Y,Z]
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
 Camera "perspective" "float fov" 70
@@ -12,7 +12,7 @@ Camera "perspective" "float fov" 70
 
 Sampler "halton" "integer pixelsamples" 128
 Integrator "path"
-Film "image" "string filename" "ProjectKaleidoscope/Outputs/mirror_1.png"
+Film "image" "string filename" "ProjectKaleidoscope/Outputs/mirror_equilateral.png"
      "integer xresolution" [400] "integer yresolution" [400]
 
 WorldBegin
@@ -24,9 +24,10 @@ LightSource "infinite" "rgb L" [.4 .45 .5]
 LightSource "distant"  "point from" [ -30 40  100 ]
    "blackbody L" [3000 1.5]
 
+# the ball
 AttributeBegin
     Material "plastic"
-    Translate 0 0.4 -1
+    Translate 0 0.8 -1
     Shape "sphere" "float radius" [ .5 ] "rgb Kd" [ 0 1 0 ]  
 AttributeEnd
 
@@ -34,11 +35,11 @@ AttributeEnd
 AttributeBegin
   Material "mirror"  
   # Translate -0.5 -0.2 -0.5
+  Scale 0.75 0.75 0.75
   Translate 0 0 5
   Rotate -90 0 1 0
   Rotate 90 0 -1 0 
-  # Scale 2.5 2.5 2.5
-  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  1 0 0  -1 0 5  1 0 5]
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1.7320 0 0  1.7320 0 0  -1.7320 0 5  1.7320 0 5]
 AttributeEnd
 
 # left mirror
@@ -46,7 +47,8 @@ AttributeBegin
 Material "mirror" 
   # Scale 2.5 2.5 2.5
   # Translate -0.5 -0.2 -0.5
-  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [1 0 0  0 1 0  1 0 5  0 1 5]
+  Scale 0.75 0.75 0.75
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [1.7320 0 0  0 3 0  1.7320 0 5  0 3 5]
 AttributeEnd
 
 # right mirror
@@ -54,7 +56,8 @@ AttributeBegin
 Material "mirror" 
   # Scale 2.5 2.5 2.5
   # Translate 0.5 -0.2 -0.5
-  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  0 1 0  -1 0 5  0 1 5]
+  Scale 0.75 0.75 0.75
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1.7320 0 0  0 3 0  -1.7320 0 5  0 3 5]
 AttributeEnd
 
 
