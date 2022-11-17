@@ -1,0 +1,13 @@
+#Texture "MarbleSmudge" "spectrum" "imagemap" "string filename" ["Models/Marble/marble_texture.png"] "string mapping" ["spherical"]
+
+#Texture "Doe_bumps" "float" "fbm" "integer octaves" [12] "float roughness" [0.6]
+Texture "Doe_line" "color" "imagemap" "string filename" "Models/Doughnut/Doe_texture.png"
+
+MakeNamedMaterial "Doe" "string type" "kdsubsurface" "texture Kd" "Doe_line" "float uroughness" [0.1] "float vroughness" [0.1] #"texture bumpmap" "Doe_bumps"
+
+MakeNamedMaterial "FrostingBalls" "string type" "metal" "rgb eta" [1 .0 .0] "rgb k" [0 1 1] "float roughness" .02
+
+MakeNamedMaterial "Frosting" "string type" "disney" "rgb color" [0.7 .1 .15] "float anisotropic" .2 "float clearcoat" [.2]
+    "float clearcoatgloss" 0.2 "float roughness" 0.25
+
+MakeNamedMaterial "Sprinkles" "string type" "matte" "rgb Kd" [.1 .45 .1]
