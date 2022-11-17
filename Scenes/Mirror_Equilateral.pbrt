@@ -12,7 +12,7 @@ Camera "perspective" "float fov" 70
 
 Sampler "halton" "integer pixelsamples" 128
 Integrator "path"
-Film "image" "string filename" "ProjectKaleidoscope/Outputs/mirror_equilateral.png"
+Film "image" "string filename" "ProjectKaleidoscope/Outputs/equilateral_kaleidoscope.png"
      "integer xresolution" [400] "integer yresolution" [400]
 
 WorldBegin
@@ -31,6 +31,7 @@ AttributeBegin
     Shape "sphere" "float radius" [ .5 ] "rgb Kd" [ 0 1 0 ]  
 AttributeEnd
 
+ObjectBegin "equilateral_kaleidoscope"
 # bottom mirror
 AttributeBegin
   Material "mirror"  
@@ -59,7 +60,10 @@ Material "mirror"
   Scale 0.75 0.75 0.75
   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1.7320 0 0  0 3 0  -1.7320 0 5  0 3 5]
 AttributeEnd
+ObjectEnd
 
+# render the kaleidoscope to the scene
+ObjectInstance "equilateral_kaleidoscope"
 
 ################################
 #FLOOR checkerboard  (XZ plane)#
