@@ -4,8 +4,8 @@ LookAt 0 3 0 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going bac
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
 Camera "perspective" "float fov" 120
 
-Sampler "halton" "integer pixelsamples" 8
-Integrator "path" "integer maxdepth" 30
+Sampler "halton" "integer pixelsamples" 16
+Integrator "path" "integer maxdepth" 10
 Film "image" "string filename" "new_frame.png"
      "integer xresolution" [1280] "integer yresolution" [720]
 
@@ -41,11 +41,19 @@ AttributeEnd
 # object and light configurations
 # ====================================
 
+Include "Models/Marble/Marble_materials.pbrt"
+Include "Models/Marble/Marble_geometry.pbrt"
+Include "Models/Doughnut/Doughnut_materials.pbrt"
+Include "Models/Doughnut/Doughnut_geometry.pbrt"
+
 # object config 1
 AttributeBegin
-   Translate 5.333333333333333 3 -3
-   Include "Models/Marble/Marble_materials.pbrt"
-   Include "Models/Marble/Marble_geometry.pbrt"
+   Translate 5.333333333333333 2.5 -3
+   ObjectInstance "Marble_bloody"
+AttributeEnd
+AttributeBegin
+   Translate 5.333333333333333 4 -3
+   ObjectInstance "Marble_internal_color"
 AttributeEnd
 # behind
 LightSource "spot" "color I" [255 0 0] "point from" [5.333333333333333 3 -5] "point to" [5.333333333333333 3 -3] "float coneangle" [100] # 43 158 179
@@ -61,8 +69,7 @@ LightSource "spot" "color I" [255 0 0] "point from" [5.333333333333333 5 -5] "po
 # object config 2
 AttributeBegin
    Translate 1.333333333333333 3 -3
-   Include "Models/Marble/Marble_materials.pbrt"
-   Include "Models/Marble/Marble_geometry.pbrt"
+   ObjectInstance "Marble_internal_color5"
 AttributeEnd
 # behind
 LightSource "spot" "color I" [0 255 0] "point from" [1.333333333333333 3 -5] "point to" [1.333333333333333 3 -3] "float coneangle" [70] # 255 238 219
@@ -77,9 +84,16 @@ LightSource "spot" "color I" [0 255 0] "point from" [1.333333333333333 5 -5] "po
 
 # object config 3
 AttributeBegin
-   Translate -2.6666666666666674 3 -3
-   Include "Models/Marble/Marble_materials.pbrt"
-   Include "Models/Marble/Marble_geometry.pbrt"
+   Translate -2.6666666666666674 2.5 -3
+   ObjectInstance "Marble_internal_color3"
+AttributeEnd
+AttributeBegin
+   Translate -1.6666666666666674 4 -3
+   ObjectInstance "Marble_internal_color4"
+AttributeEnd
+AttributeBegin
+   Translate -3.6666666666666674 4 -3
+   ObjectInstance "Marble_internal_color2"
 AttributeEnd
 # behind
 LightSource "spot" "color I" [0 0 255] "point from" [-2.6666666666666674 3 -5] "point to" [-2.6666666666666674 3 -3] "float coneangle" [100] # 254 195 166

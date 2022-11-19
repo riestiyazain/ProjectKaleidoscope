@@ -1,9 +1,9 @@
 Texture "MarbleSmudge" "spectrum" "imagemap" "string filename" ["Models/Marble/marble_texture.png"] "string mapping" ["spherical"]
 #Texture "PerlinMarble" "spectrum" "marble" "integer octaves" [2] "float roughness" [0.3] "float scale" [0.25] "float variation" [0.9]
-Texture "PerlinFBM" "spectrum" "fbm" "integer octaves" [16] "float roughness" [0.9]
+Texture "PerlinFBMarble" "spectrum" "fbm" "integer octaves" [16] "float roughness" [0.9]
 Texture "ColorRamp" "spectrum" "imagemap" "string filename" ["Models/Marble/Marble_color_bake.png"] "string mapping" "uv" #"float uscale" .26 #"float vscale" .22 "float udelta" 0.35 "float vdelta" 0.3
 
 MakeNamedMaterial "MarbleGlassOrange" "string type" "glass" "texture Kr" "MarbleSmudge" "rgb Kt" [1 0.2 0.2]
 MakeNamedMaterial "MarbleGlassPurple" "string type" "glass" "texture Kr" "MarbleSmudge" "rgb Kt" [0.6 0.8 1]
 
-MakeNamedMaterial "MarbleGlass" "string type" "mix" "texture amount" "PerlinFBM" "string namedmaterial1" "MarbleGlassOrange" "string namedmaterial2" "MarbleGlassPurple"
+MakeNamedMaterial "MarbleGlass" "string type" "mix" "texture amount" "PerlinFBMarble" "string namedmaterial1" "MarbleGlassOrange" "string namedmaterial2" "MarbleGlassPurple"

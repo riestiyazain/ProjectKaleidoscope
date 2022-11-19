@@ -60,6 +60,7 @@ for script in script_list:
         with open(script_name, "w") as f:
             f.write(new_content)
         
+        print("BRUAHSDFIASDFIOADSF")
         cmd = f"C:\\Users\\hassa\\Studies\\IDIG4002\\pbrt-v3\\build\\Release\\pbrt.exe {script_name}"
         os.system(cmd)
 
