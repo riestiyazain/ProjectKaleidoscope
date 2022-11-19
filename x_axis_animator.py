@@ -3,12 +3,11 @@ import re
 import copy
 import shutil
 
-distance = 8
-number_of_frames = 3
+distance = 10
+number_of_frames = 5
 object_movement_interval = distance / number_of_frames
 
 script_list = ["main0.pbrt", "main1.pbrt", "main2.pbrt", "main3.pbrt", "main4.pbrt"]
-script_list = ["main0.pbrt"]
 
 c1_tag_current_value_list = [];
 c2_tag_current_value_list = [];
@@ -22,9 +21,9 @@ for script in script_list:
 
     # recording all tags index wise
     # these will be replaced with x-axis values
-    c1_tag_list = re.findall(r"\$c1&-?\d+\$", content)
-    c2_tag_list = re.findall(r"\$c2&-?\d+\$", content)
-    c3_tag_list = re.findall(r"\$c3&-?\d+\$", content)
+    c1_tag_list = re.findall(r"\$c1&-?\d+.?\d?\$", content)
+    c2_tag_list = re.findall(r"\$c2&-?\d+.?\d?\$", content)
+    c3_tag_list = re.findall(r"\$c3&-?\d+.?\d?\$", content)
     
     for c1_tag in c1_tag_list:
         c1_tag_current_value = c1_tag.split("&")[1].split("$")[0]
@@ -60,7 +59,10 @@ for script in script_list:
         with open(script_name, "w") as f:
             f.write(new_content)
         
-        print("BRUAHSDFIASDFIOADSF")
+        print("=============================================================================")
+        print(f"RENDERING: {script}, FRAME: {n_frame+1}/{number_of_frames}")
+        print("=============================================================================")
+
         cmd = f"C:\\Users\\hassa\\Studies\\IDIG4002\\pbrt-v3\\build\\Release\\pbrt.exe {script_name}"
         os.system(cmd)
 

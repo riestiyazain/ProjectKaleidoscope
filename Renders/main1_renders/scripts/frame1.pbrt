@@ -5,7 +5,7 @@ LookAt 0 3 4 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going bac
 Camera "perspective" "float fov" 120
 
 Sampler "halton" "integer pixelsamples" 8
-Integrator "path" "integer maxdepth" 10
+Integrator "path" "integer maxdepth" 20
 Film "image" "string filename" "new_frame.png"
      "integer xresolution" [1280] "integer yresolution" [720]
 
@@ -41,56 +41,72 @@ AttributeEnd
 # object and light configurations
 # ====================================
 
+Include "Models/Marble/Marble_materials.pbrt"
+Include "Models/Marble/Marble_geometry.pbrt"
+Include "Models/Doughnut/Doughnut_materials.pbrt"
+Include "Models/Doughnut/Doughnut_geometry.pbrt"
+
 # object config 1
 AttributeBegin
-   Translate 2.6666666666666665 3 -3
-   Include "Models/Marble/Marble_materials.pbrt"
-   Include "Models/Marble/Marble_geometry.pbrt"
+   Translate 2.0 2.5 -3
+   ObjectInstance "Marble_bloody"
+AttributeEnd
+AttributeBegin
+   Translate 2.0 4 -3
+   ObjectInstance "Marble_internal_color"
+AttributeEnd
+AttributeBegin
+   Translate 2.0 3 -3
+   ObjectInstance "Marble_internal_color4"
+AttributeEnd
+AttributeBegin
+   Translate -2.0 3 -3
+   ObjectInstance "Marble_internal_color2"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [255 0 0] "point from" [2.6666666666666665 3 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [100] # 43 158 179
+LightSource "spot" "color I" [255 0 0] "point from" [2.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [100] # 43 158 179
 # left
-# LightSource "spot" "color I" [0 255 255] "point from" [5.666666666666666 3 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [0 255 255] "point from" [5.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 # right
-# LightSource "spot" "color I" [255 0 255] "point from" [-0.3333333333333335 3 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [255 0 255] "point from" [-1.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [255 0 0] "point from" [2.6666666666666665 5 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50] # 155 126 222
+LightSource "spot" "color I" [255 0 0] "point from" [2.0 5 -5] "point to" [2.0 3 -3] "float coneangle" [50] # 155 126 222
 # bottom
-# LightSource "spot" "color I" [68 175 105] "point from" [2.6666666666666665 1 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [68 175 105] "point from" [2.0 1 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 
 # object config 2
 AttributeBegin
-   Translate -1.3333333333333335 3 -3
-   Include "Models/Marble/Marble_materials.pbrt"
-   Include "Models/Marble/Marble_geometry.pbrt"
+   Translate 2.0 2.7 -3
+   Rotate 90 1 0 0
+   ObjectInstance "Doughnut_basic"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [0 255 0] "point from" [-1.3333333333333335 3 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [100] # 255 238 219
+LightSource "spot" "color I" [0 255 0] "point from" [2.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [100] # 255 238 219
 # left
-# LightSource "spot" "color I" [186 59 70] "point from" [1.6666666666666665 3 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [186 59 70] "point from" [2.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 # right
-# LightSource "spot" "color I" [97 201 168] "point from" [-4.333333333333334 3 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [97 201 168] "point from" [2.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [0 255 0] "point from" [-1.3333333333333335 5 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50] # 237 155 64
+LightSource "spot" "color I" [100 100 100] "point from" [2.0 5 -1] "point to" [2.0 3 -3] "float coneangle" [50] # 237 155 64
 # bottom
-# LightSource "spot" "color I" [170 143 102] "point from" [-1.3333333333333335 1 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [170 143 102] "point from" [2.0 1 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 
 # object config 3
 AttributeBegin
-   Translate -5.333333333333334 3 -3
-   Include "Models/Marble/Marble_materials.pbrt"
-   Include "Models/Marble/Marble_geometry.pbrt"
+   Translate -2.0 3 -3
+   Rotate 90 1 0 0
+   ObjectInstance "Doughnut_glass"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [0 0 255] "point from" [-5.333333333333334 3 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [100] # 254 195 166
+LightSource "spot" "color I" [0 0 255] "point from" [-2.0 3 -5] "point to" [-2.0 3 -3] "float coneangle" [100] # 254 195 166
 # left
-# LightSource "spot" "color I" [255 146 139] "point from" [-2.3333333333333335 3 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [255 146 139] "point from" [-2.0 3 -5] "point to" [-2.0 3 -3] "float coneangle" [50]
 # right
-# LightSource "spot" "color I" [255 172 129] "point from" [-8.333333333333334 3 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [255 172 129] "point from" [-2.0 3 -5] "point to" [-2.0 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [0 0 255] "point from" [-5.333333333333334 5 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50] # 205 234 192
+LightSource "spot" "color I" [255 0 0] "point from" [-2.0 5 -1] "point to" [-2.0 3 -3] "float coneangle" [50] # 205 234 192
 # bottom
-# LightSource "spot" "color I" [239 233 174] "point from" [-5.333333333333334 1 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [239 233 174] "point from" [-2.0 1 -5] "point to" [-2.0 3 -3] "float coneangle" [50]
 
 ################################
 #FLOOR checkerboard  (XZ plane)#
