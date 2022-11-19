@@ -4,7 +4,7 @@ LookAt 0 3 4 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going bac
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
 Camera "perspective" "float fov" 120
 
-Sampler "halton" "integer pixelsamples" 1024
+Sampler "halton" "integer pixelsamples" 32
 Integrator "path" "integer maxdepth" 10
 Film "image" "string filename" "main.png"
      "integer xresolution" [1280] "integer yresolution" [720]
@@ -59,7 +59,9 @@ LightSource "spot" "color I" [255 0 0] "point from" [0 1 -5] "point to" [0 3 -3]
 
 AttributeBegin
   Translate 0 -1 0 #translate checkerboard -1 in y
-  Texture "checks" "spectrum" "constant"
+  Texture "checks" "spectrum" "checkerboard"
+          "float uscale" [8] "float vscale" [8] #defines a 8 by 8 checkerboard
+          "rgb tex1" [.1 .1 .1] "rgb tex2" [.8 .8 .8] #defines color of squares in checkerboard
   Material "matte" "texture Kd" "checks"
 
   Shape "trianglemesh"
