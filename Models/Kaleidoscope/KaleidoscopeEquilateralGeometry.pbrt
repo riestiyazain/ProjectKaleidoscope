@@ -2,32 +2,27 @@ ObjectBegin "equilateral_kaleidoscope"
 # bottom mirror
 AttributeBegin
   Material "mirror"  
-  # Translate -0.5 -0.2 -0.5
-  Scale 0.75 0.75 0.75
-  Translate 0 0 5
-  Rotate -90 0 1 0
-  Rotate 90 0 -1 0 
+  # Scale 0.75 0.75 0.75
+  # Translate 0 0 5
+  # Rotate -90 0 1 0
+  # Rotate 90 0 -1 0 
   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1.7320 0 0  1.7320 0 0  -1.7320 0 5  1.7320 0 5]
 AttributeEnd
 
 # left mirror
 AttributeBegin
 Material "mirror" 
-  # Scale 2.5 2.5 2.5
-  # Translate -0.5 -0.2 -0.5
-  Scale 0.75 0.75 0.75
+  # Scale 0.75 0.75 0.75
   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [1.7320 0 0  0 3 0  1.7320 0 5  0 3 5]
 AttributeEnd
 
 # right mirror
 AttributeBegin
-Material "mirror" 
-  # Scale 2.5 2.5 2.5
-  # Translate 0.5 -0.2 -0.5
-  Scale 0.75 0.75 0.75
+Material "mirror"
+  # Scale 0.75 0.75 0.75
   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1.7320 0 0  0 3 0  -1.7320 0 5  0 3 5]
 AttributeEnd
 ObjectEnd
 
 # This line shows how to render the kaleidoscope to the scene
-# ObjectInstance "equilateral_kaleidoscope"
+ObjectInstance "equilateral_kaleidoscope"
