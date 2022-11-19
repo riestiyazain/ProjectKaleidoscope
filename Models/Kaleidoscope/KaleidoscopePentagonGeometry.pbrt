@@ -1,0 +1,38 @@
+ObjectBegin "pentagonal_kaleidoscope"
+# bottom mirror
+AttributeBegin
+  Material "mirror"  
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  1 0 0  -1 0 5  1 0 5]
+AttributeEnd
+
+# left bottom mirror 
+AttributeBegin
+Material "mirror" 
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [1 0 0  1 0 5  2 2 0  2 2 5]
+AttributeEnd
+
+# right bottom mirror 
+AttributeBegin
+Material "mirror" 
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  -1 0 5  -2 2 0  -2 2 5]
+AttributeEnd
+
+# left top mirror 
+AttributeBegin
+Material "mirror" 
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [2 2 0  2 2 5  0 3.5 0  0 3.5 5]
+AttributeEnd
+
+# right top mirror 
+AttributeBegin
+Material "mirror" 
+  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-2 2 0  -2 2 5  0 3.5 0  0 3.5 5]
+AttributeEnd
+ObjectEnd
+
+# This line shows how to render the kaleidoscope to the scene
+AttributeBegin
+Scale 0.5 0.5 1
+ObjectInstance "pentagonal_kaleidoscope"
+AttributeEnd
+
