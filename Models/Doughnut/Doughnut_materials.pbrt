@@ -1,5 +1,6 @@
 #Texture "Doe_bumps" "float" "fbm" "integer octaves" [12] "float roughness" [0.6]
 Texture "Doe_line" "color" "imagemap" "string filename" "Models/Doughnut/Doe_texture.png"
+Texture "PerlinFBM" "spectrum" "fbm" "integer octaves" [16] "float roughness" [0.9]
 
 MakeNamedMaterial "Doe" "string type" "kdsubsurface" "float scale" 0.0001 "texture Kd" "Doe_line" "float uroughness" [0.1] "float vroughness" [0.1] #"texture bumpmap" "Doe_bumps"
 
@@ -8,3 +9,11 @@ MakeNamedMaterial "FrostingBalls" "string type" "metal" "rgb eta" [1 .0 .0] "rgb
 MakeNamedMaterial "Frosting" "string type" "disney" "rgb color" [0.7 .1 .15] "float roughness" 0.35
 
 MakeNamedMaterial "Sprinkles" "string type" "matte" "rgb Kd" [.1 .45 .1]
+
+MakeNamedMaterial "DoughnutGlassRed" "string type" "glass"  "rgb Kt" [1 0.2 0.2]
+MakeNamedMaterial "DoughnutGlassPurple" "string type" "glass"  "rgb Kt" [0.6 0.8 1]
+MakeNamedMaterial "DoughnutGlassPink" "string type" "glass" "rgb Kt" [1 .8 .8]
+MakeNamedMaterial "DoughnutGlassGreen" "string type" "glass" "rgb Kt" [.7 1 .8]
+
+MakeNamedMaterial "DoughnutGlass" "string type" "mix" "texture amount" "PerlinFBM" "string namedmaterial1" "DoughnutGlassRed" "string namedmaterial2" "DoughnutGlassPurple"
+MakeNamedMaterial "FrostingGlass" "string type" "mix" "texture amount" "PerlinFBM" "string namedmaterial1" "DoughnutGlassGreen" "string namedmaterial2" "DoughnutGlassPink"
