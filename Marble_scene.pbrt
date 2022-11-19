@@ -4,7 +4,7 @@ LookAt 0 1 1 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going bac
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
 Camera "perspective" "float fov" 90
 
-Sampler "halton" "integer pixelsamples" 2048
+Sampler "halton" "integer pixelsamples" 128
 Integrator "path" "integer maxdepth" [20]
 Film "image" "string filename" "marble_scene.png"
      "integer xresolution" [512] "integer yresolution" [512]
@@ -18,10 +18,17 @@ LightSource "infinite" "rgb L" [.4 .45 .5]
 LightSource "distant"  "point from" [ -30 40  100 ]
    "blackbody L" [3000 1.5]
 
+Include "Models/Marble/Marble_materials.pbrt"
+Include "Models/Marble/Marble_geometry.pbrt"
+
 AttributeBegin
-    Translate 0 -1 -2
-   Include "Models/Doughnut/Doughnut_materials.pbrt"
-   Include "Models/Doughnut/Doughnut_geometry.pbrt"
+    Translate 2 0 -4
+    ObjectInstance "Marble_bloody"
+AttributeEnd
+
+AttributeBegin
+    Translate -1 0 -3
+    ObjectInstance "Marble_internal_color"
 AttributeEnd
 
 ################################

@@ -1,5 +1,19 @@
-AttributeBegin
+## For importing
+ObjectBegin "Marble_bloody"
     NamedMaterial "MarbleGlass"
     Shape "plymesh" "string filename" "Models/Marble/Marble.ply"
+ObjectEnd
 
-AttributeEnd
+ObjectBegin "Marble_internal_color"
+    Material "glass" "rgb Kr" [.4 .1 .7] "rgb Kt" [.9 .8 .7]
+    Shape "plymesh" "string filename" "Models/Marble/Marble.ply"
+    Translate 0 0 0.990232
+    Rotate 35 0 0 1
+    Rotate 23 0 1 0
+    Rotate 10 1 0 0
+    Translate 0 0 -0.990232
+    Material "matte" "texture Kd" "ColorRamp"
+    Shape "plymesh" "string filename" "Models/Marble/Marble_color.ply"
+ObjectEnd
+
+## Not intended for use
