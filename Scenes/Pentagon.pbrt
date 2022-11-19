@@ -2,7 +2,7 @@
 LookAt 0 0.3 2.5 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going back and the small numbers means going forward)
        0 0 0  # look at point [X,Y,Z]
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
-Camera "perspective" "float fov" 70
+Camera "perspective" "float fov" 120
 
 # Top view
 # LookAt -5 5 -3 # eye  
@@ -11,9 +11,9 @@ Camera "perspective" "float fov" 70
 # Camera "perspective" "float fov" 90
 
 Sampler "halton" "integer pixelsamples" 128
-Integrator "path"
-Film "image" "string filename" "ProjectKaleidoscope/Outputs/isoceles_kaleidoscope.png"
-     "integer xresolution" [400] "integer yresolution" [400]
+Integrator "path" "integer maxdepth" 10
+Film "image" "string filename" "ProjectKaleidoscope/Outputs/pentagon_kaleidoscope.png"
+     "integer xresolution" [1280] "integer yresolution" [720]
 
 WorldBegin
 
@@ -30,37 +30,44 @@ AttributeBegin
     Shape "sphere" "float radius" [ .5 ] "rgb Kd" [ 0 1 0 ]  
 AttributeEnd
 
-ObjectBegin "isoceles_kaleidoscope"
-# bottom mirror
-AttributeBegin
-  Material "mirror"  
-  # Translate -0.5 -0.2 -0.5
-  # Translate 0 0 5
-  # Rotate -90 0 1 0
-  # Rotate 90 0 -1 0 
-  # Scale 2.5 2.5 2.5
-  Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  1 0 0  -1 0 5  1 0 5]
-AttributeEnd
+Include "/Users/riestiyazain/work/NTNU/IDIG4002 - Computer Graphics and Fundamental Applications/softwares/ProjectKaleidoscope/Models/Kaleidoscope/KaleidoscopePentagonGeometry.pbrt"
 
-# # left mirror
+
+# # bottom mirror
 # AttributeBegin
-# Material "mirror" 
-#   # Scale 2.5 2.5 2.5
-#   # Translate -0.5 -0.2 -0.5
-#   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [1 0 0  0 1 0  1 0 5  0 1 5]
+#   Material "mirror"  
+#   Scale .5 .5 1
+#   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  1 0 0  -1 0 5  1 0 5]
 # AttributeEnd
 
-# # right mirror
+# # left bottom mirror 
 # AttributeBegin
-# Material "mirror" 
-#   # Scale 2.5 2.5 2.5
-#   # Translate 0.5 -0.2 -0.5
-#   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  0 1 0  -1 0 5  0 1 5]
+#     Material "mirror" 
+#     Scale .5 .5 1
+#     Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [1 0 0  1 0 5  2 2 0  2 2 5]
 # AttributeEnd
-ObjectEnd
 
-# render the kaleidoscope to the scene
-ObjectInstance "isoceles_kaleidoscope"
+# # right bottom mirror 
+# AttributeBegin
+#     Material "mirror" 
+#     Scale .5 .5 1
+#     Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  -1 0 5  -2 2 0  -2 2 5]
+# AttributeEnd
+
+# # left top mirror 
+# AttributeBegin
+#     Material "mirror" 
+#     Scale .5 .5 1
+#     Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [2 2 0  2 2 5  0 3.5 0  0 3.5 5]
+# AttributeEnd
+
+# # right top mirror 
+# AttributeBegin
+#     Material "mirror" 
+#     Scale .5 .5 1
+#     Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-2 2 0  -2 2 5  0 3.5 0  0 3.5 5]
+# AttributeEnd
+
 
 ################################
 #FLOOR checkerboard  (XZ plane)#
