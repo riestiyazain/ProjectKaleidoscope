@@ -1,0 +1,9 @@
+ObjectBegin "cylindrical_kaleidoscope"
+AttributeBegin
+    Material "mirror"
+    Scale 1 1 3
+    Shape "cylinder"
+AttributeEnd
+ObjectEnd
+
+ObjectInstance "cylindrical_kaleidoscope"
