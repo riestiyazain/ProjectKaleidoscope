@@ -16,4 +16,52 @@ ObjectBegin "Marble_internal_color"
     Shape "plymesh" "string filename" "Models/Marble/Marble_color.ply"
 ObjectEnd
 
+ObjectBegin "Marble_internal_color2"
+    Material "glass" "rgb Kr" [.7 .17 .1] "rgb Kt" [.2 .4 .2]
+    Shape "plymesh" "string filename" "Models/Marble/Marble.ply"
+    Translate 0 0 0.990232
+    Rotate 35 0 0 1
+    Rotate 81 0 1 0
+    Rotate 6 1 0 0
+    Translate 0 0 -0.990232
+    Material "matte" "texture Kd" "ColorRamp"
+    Shape "plymesh" "string filename" "Models/Marble/Marble_color.ply"
+ObjectEnd
+
+ObjectBegin "Marble_internal_color3"
+    Material "glass" "rgb Kr" [.1 .9 .1] "rgb Kt" [.2 .2 .4]
+    Shape "plymesh" "string filename" "Models/Marble/Marble.ply"
+    Translate 0 0 0.990232
+    Rotate 75 0 0 1
+    Rotate 43 0 1 0
+    Rotate 5 1 0 0
+    Translate 0 0 -0.990232
+    Material "matte" "texture Kd" "ColorRamp"
+    Shape "plymesh" "string filename" "Models/Marble/Marble_color.ply"
+ObjectEnd
+
+ObjectBegin "Marble_internal_color4"
+    Material "glass" "rgb Kr" [.1 .1 .9] "rgb Kt" [.4 .2 .2]
+    Shape "plymesh" "string filename" "Models/Marble/Marble.ply"
+    Translate 0 0 0.990232
+    Rotate 15 0 0 1
+    Rotate 73 0 1 0
+    Rotate 10 1 0 0
+    Translate 0 0 -0.990232
+    Material "matte" "texture Kd" "ColorRamp"
+    Shape "plymesh" "string filename" "Models/Marble/Marble_color.ply"
+ObjectEnd
+
+ObjectBegin "Marble_internal_color5"
+    Material "glass" "rgb Kr" [.9 .9 .9] "rgb Kt" [.4 .5 .7]
+    Shape "plymesh" "string filename" "Models/Marble/Marble.ply"
+    Translate 0 0 0.990232
+    Rotate 35 1 0 0
+    Rotate 23 0 1 0
+    Rotate 10 0 0 1
+    Translate 0 0 -0.990232
+    Material "matte" "texture Kd" "ColorRamp"
+    Shape "plymesh" "string filename" "Models/Marble/Marble_color.ply"
+ObjectEnd
+
 ## Not intended for use
