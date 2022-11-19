@@ -8,7 +8,7 @@ number_of_frames = 3
 object_movement_interval = distance / number_of_frames
 
 script_list = ["main0.pbrt", "main1.pbrt", "main2.pbrt", "main3.pbrt", "main4.pbrt"]
-script_list = ["main1.pbrt"]
+script_list = ["main0.pbrt"]
 
 c1_tag_current_value_list = [];
 c2_tag_current_value_list = [];

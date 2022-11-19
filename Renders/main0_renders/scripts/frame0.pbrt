@@ -4,8 +4,8 @@ LookAt 0 3 0 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going bac
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
 Camera "perspective" "float fov" 120
 
-Sampler "halton" "integer pixelsamples" 512
-Integrator "path" "integer maxdepth" 10
+Sampler "halton" "integer pixelsamples" 8
+Integrator "path" "integer maxdepth" 30
 Film "image" "string filename" "new_frame.png"
      "integer xresolution" [1280] "integer yresolution" [720]
 
@@ -43,54 +43,54 @@ AttributeEnd
 
 # object config 1
 AttributeBegin
-   Translate $c1&0$ 3 -3
+   Translate 0 3 -3
    Include "Models/Marble/Marble_materials.pbrt"
    Include "Models/Marble/Marble_geometry.pbrt"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [255 0 0] "point from" [$c1&0$ 3 -5] "point to" [$c1&0$ 3 -3] "float coneangle" [100] # 43 158 179
+LightSource "spot" "color I" [255 0 0] "point from" [0 3 -5] "point to" [0 3 -3] "float coneangle" [100] # 43 158 179
 # left
-# LightSource "spot" "color I" [0 255 255] "point from" [$c1&3$ 3 -5] "point to" [$c1&0$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [0 255 255] "point from" [3 3 -5] "point to" [0 3 -3] "float coneangle" [50]
 # right
-# LightSource "spot" "color I" [255 0 255] "point from" [$c1&-3$ 3 -5] "point to" [$c1&0$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [255 0 255] "point from" [-3 3 -5] "point to" [0 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [255 0 0] "point from" [$c1&0$ 5 -5] "point to" [$c1&0$ 3 -3] "float coneangle" [50] # 155 126 222
+LightSource "spot" "color I" [255 0 0] "point from" [0 5 -5] "point to" [0 3 -3] "float coneangle" [50] # 155 126 222
 # bottom
-# LightSource "spot" "color I" [68 175 105] "point from" [$c1&0$ 1 -5] "point to" [$c1&0$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [68 175 105] "point from" [0 1 -5] "point to" [0 3 -3] "float coneangle" [50]
 
 # object config 2
 AttributeBegin
-   Translate $c2&-4$ 3 -3
+   Translate -4 3 -3
    Include "Models/Marble/Marble_materials.pbrt"
    Include "Models/Marble/Marble_geometry.pbrt"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [0 255 0] "point from" [$c2&-4$ 3 -5] "point to" [$c2&-4$ 3 -3] "float coneangle" [70] # 255 238 219
+LightSource "spot" "color I" [0 255 0] "point from" [-4 3 -5] "point to" [-4 3 -3] "float coneangle" [70] # 255 238 219
 # left
-# LightSource "spot" "color I" [186 59 70] "point from" [$c2&-1$ 3 -5] "point to" [$c2&-4$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [186 59 70] "point from" [-1 3 -5] "point to" [-4 3 -3] "float coneangle" [50]
 # right
-# LightSource "spot" "color I" [97 201 168] "point from" [$c2&-7$ 3 -5] "point to" [$c2&-4$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [97 201 168] "point from" [-7 3 -5] "point to" [-4 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [0 255 0] "point from" [$c2&-4$ 5 -5] "point to" [$c2&-4$ 3 -3] "float coneangle" [50] # 237 155 64
+LightSource "spot" "color I" [0 255 0] "point from" [-4 5 -5] "point to" [-4 3 -3] "float coneangle" [50] # 237 155 64
 # bottom
-# LightSource "spot" "color I" [170 143 102] "point from" [$c2&-4$ 1 -5] "point to" [$c2&-4$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [170 143 102] "point from" [-4 1 -5] "point to" [-4 3 -3] "float coneangle" [50]
 
 # object config 3
 AttributeBegin
-   Translate $c3&-8$ 3 -3
+   Translate -8 3 -3
    Include "Models/Marble/Marble_materials.pbrt"
    Include "Models/Marble/Marble_geometry.pbrt"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [0 0 255] "point from" [$c3&-8$ 3 -5] "point to" [$c3&-8$ 3 -3] "float coneangle" [100] # 254 195 166
+LightSource "spot" "color I" [0 0 255] "point from" [-8 3 -5] "point to" [-8 3 -3] "float coneangle" [100] # 254 195 166
 # left
-# LightSource "spot" "color I" [255 146 139] "point from" [$c3&-5$ 3 -5] "point to" [$c3&-8$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [255 146 139] "point from" [-5 3 -5] "point to" [-8 3 -3] "float coneangle" [50]
 # right
-# LightSource "spot" "color I" [255 172 129] "point from" [$c3&-11$ 3 -5] "point to" [$c3&-8$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [255 172 129] "point from" [-11 3 -5] "point to" [-8 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [0 0 255] "point from" [$c3&-8$ 5 -5] "point to" [$c3&-8$ 3 -3] "float coneangle" [50] # 205 234 192
+LightSource "spot" "color I" [0 0 255] "point from" [-8 5 -5] "point to" [-8 3 -3] "float coneangle" [50] # 205 234 192
 # bottom
-# LightSource "spot" "color I" [239 233 174] "point from" [$c3&-8$ 1 -5] "point to" [$c3&-8$ 3 -3] "float coneangle" [50]
+# LightSource "spot" "color I" [239 233 174] "point from" [-8 1 -5] "point to" [-8 3 -3] "float coneangle" [50]
 
 ################################
 #FLOOR checkerboard  (XZ plane)#

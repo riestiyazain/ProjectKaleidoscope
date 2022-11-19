@@ -1,0 +1,115 @@
+# View from the XY plane (X is the horizontal, Y is the vertical, Z is the depth)
+LookAt 0 3 4 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going back and the small numbers means going forward) DEFAULT 0 3 4
+       0 3 -3  # look at point [X,Y,Z]
+       0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
+Camera "perspective" "float fov" 120
+
+Sampler "halton" "integer pixelsamples" 8
+Integrator "path" "integer maxdepth" 30
+Film "image" "string filename" "new_frame.png"
+     "integer xresolution" [1280] "integer yresolution" [720]
+
+WorldBegin
+
+# uniform blue-ish illumination from all directions
+LightSource "infinite" "rgb L" [.4 .45 .5]
+
+# approximate the sun
+LightSource "distant" "point from" [ -30 40  100 ] "blackbody L" [3000 1.5]
+
+# ====================================
+# background plane
+# ====================================
+
+AttributeBegin
+   Material "plastic" "rgb Kd" [ 1 1 1 ]
+   Translate 0 -5 -6
+   Scale 30 30 30
+   Shape "trianglemesh" "integer indices" [0 1 2 1 2 3] "point P" [-1 0 0  1 0 0  -1 1 0  1 1 0]
+AttributeEnd
+
+# ====================================
+# kaleidoscope
+# ====================================
+
+AttributeBegin
+   Translate 0 1.3 0
+   Include "Models/Kaleidoscope/KaleidoscopeIsocelesGeometry.pbrt"
+AttributeEnd
+
+# ====================================
+# object and light configurations
+# ====================================
+
+# object config 1
+AttributeBegin
+   Translate 2.6666666666666665 3 -3
+   Include "Models/Marble/Marble_materials.pbrt"
+   Include "Models/Marble/Marble_geometry.pbrt"
+AttributeEnd
+# behind
+LightSource "spot" "color I" [255 0 0] "point from" [2.6666666666666665 3 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [100] # 43 158 179
+# left
+# LightSource "spot" "color I" [0 255 255] "point from" [5.666666666666666 3 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50]
+# right
+# LightSource "spot" "color I" [255 0 255] "point from" [-0.3333333333333335 3 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50]
+# top
+LightSource "spot" "color I" [255 0 0] "point from" [2.6666666666666665 5 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50] # 155 126 222
+# bottom
+# LightSource "spot" "color I" [68 175 105] "point from" [2.6666666666666665 1 -5] "point to" [2.6666666666666665 3 -3] "float coneangle" [50]
+
+# object config 2
+AttributeBegin
+   Translate -1.3333333333333335 3 -3
+   Include "Models/Marble/Marble_materials.pbrt"
+   Include "Models/Marble/Marble_geometry.pbrt"
+AttributeEnd
+# behind
+LightSource "spot" "color I" [0 255 0] "point from" [-1.3333333333333335 3 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [70] # 255 238 219
+# left
+# LightSource "spot" "color I" [186 59 70] "point from" [1.6666666666666665 3 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50]
+# right
+# LightSource "spot" "color I" [97 201 168] "point from" [-4.333333333333334 3 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50]
+# top
+LightSource "spot" "color I" [0 255 0] "point from" [-1.3333333333333335 5 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50] # 237 155 64
+# bottom
+# LightSource "spot" "color I" [170 143 102] "point from" [-1.3333333333333335 1 -5] "point to" [-1.3333333333333335 3 -3] "float coneangle" [50]
+
+# object config 3
+AttributeBegin
+   Translate -5.333333333333334 3 -3
+   Include "Models/Marble/Marble_materials.pbrt"
+   Include "Models/Marble/Marble_geometry.pbrt"
+AttributeEnd
+# behind
+LightSource "spot" "color I" [0 0 255] "point from" [-5.333333333333334 3 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [100] # 254 195 166
+# left
+# LightSource "spot" "color I" [255 146 139] "point from" [-2.3333333333333335 3 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50]
+# right
+# LightSource "spot" "color I" [255 172 129] "point from" [-8.333333333333334 3 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50]
+# top
+LightSource "spot" "color I" [0 0 255] "point from" [-5.333333333333334 5 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50] # 205 234 192
+# bottom
+# LightSource "spot" "color I" [239 233 174] "point from" [-5.333333333333334 1 -5] "point to" [-5.333333333333334 3 -3] "float coneangle" [50]
+
+################################
+#FLOOR checkerboard  (XZ plane)#
+################################
+
+AttributeBegin
+  Translate 0 -1 0 #translate checkerboard -1 in y
+  Texture "checks" "spectrum" "checkerboard"
+          "float uscale" [8] "float vscale" [8] #defines a 8 by 8 checkerboard
+          "rgb tex1" [.1 .1 .1] "rgb tex2" [.8 .8 .8] #defines color of squares in checkerboard
+  Material "matte" "texture Kd" "checks"
+
+  Shape "trianglemesh"
+
+  "integer indices" [0 1 3 1 2 3]
+  "point P" [-20 0 -20  -20 0 20   20 0 20   20 0 -20] # defines the 4 extreme points of checkerboard
+  "float st" [ 0 0   1 0    1 1   0 1 ]
+AttributeEnd
+
+WorldEnd
+
+
