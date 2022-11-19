@@ -1,25 +1,29 @@
-
-
-AttributeBegin
+ObjectBegin "Doughnut_basic"
     Rotate -90 1 0 0
     NamedMaterial "Doe"
     Shape "plymesh" "string filename" "Models/Doughnut/Doughnut.ply"
-AttributeEnd
 
-AttributeBegin
-Rotate -90 1 0 0
     NamedMaterial "FrostingBalls"
     Shape "plymesh" "string filename" "Models/Doughnut/Doughnut_frosting_balls.ply"
-AttributeEnd
 
-AttributeBegin
-Rotate -90 1 0 0
     NamedMaterial "Frosting"
     Shape "plymesh" "string filename" "Models/Doughnut/Doughnut_frosting.ply"
-AttributeEnd
 
-AttributeBegin
-Rotate -90 1 0 0
     NamedMaterial "Sprinkles"
     Shape "plymesh" "string filename" "Models/Doughnut/Doughnut_sprinkles.ply"
-AttributeEnd
+ObjectEnd
+
+ObjectBegin "Doughnut_glass"
+    Rotate -90 1 0 0
+    NamedMaterial "DoughnutGlass"
+    Shape "plymesh" "string filename" "Models/Doughnut/Doughnut.ply"
+
+    NamedMaterial "FrostingBalls"
+    Shape "plymesh" "string filename" "Models/Doughnut/Doughnut_frosting_balls.ply"
+
+    NamedMaterial "FrostingGlass"
+    Shape "plymesh" "string filename" "Models/Doughnut/Doughnut_frosting.ply"
+
+    NamedMaterial "Sprinkles"
+    Shape "plymesh" "string filename" "Models/Doughnut/Doughnut_sprinkles.ply"
+ObjectEnd
