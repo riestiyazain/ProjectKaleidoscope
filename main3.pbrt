@@ -4,7 +4,7 @@ LookAt 0 3 3 # eye  [X,Y,Z] -- x = 0, y = 0, z = 10 (big numbers means going bac
        0 1 0  # up vector [X,Y,Z] -- setting y to one makes it so that y is up and x is horizontal and z is depth
 Camera "perspective" "float fov" 120
 
-Sampler "halton" "integer pixelsamples" 16
+Sampler "halton" "integer pixelsamples" 512
 Integrator "path" "integer maxdepth" 20
 Film "image" "string filename" "new_frame.png"
      "integer xresolution" [1280] "integer yresolution" [720]

@@ -4,7 +4,7 @@ import copy
 import shutil
 
 distance = 10
-number_of_frames = 5
+number_of_frames = 100
 object_movement_interval = distance / number_of_frames
 
 script_list = ["main0.pbrt", "main1.pbrt", "main2.pbrt", "main3.pbrt", "main4.pbrt"]
