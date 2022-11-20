@@ -81,13 +81,13 @@ AttributeBegin
    ObjectInstance "Doughnut_basic"
 AttributeEnd
 # behind
-LightSource "spot" "color I" [0 255 0] "point from" [2.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [70] # 255 238 219
+LightSource "spot" "color I" [0 255 0] "point from" [2.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [100] # 255 238 219
 # left
 # LightSource "spot" "color I" [186 59 70] "point from" [5.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 # right
 # LightSource "spot" "color I" [97 201 168] "point from" [-1.0 3 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [180 180 180] "point from" [2.0 5 -5] "point to" [2.0 3 -3] "float coneangle" [100] # 237 155 64
+LightSource "spot" "color I" [20 20 20] "point from" [2.0 5 -1] "point to" [2.0 3 -3] "float coneangle" [50] # 237 155 64
 # bottom
 # LightSource "spot" "color I" [170 143 102] "point from" [2.0 1 -5] "point to" [2.0 3 -3] "float coneangle" [50]
 
@@ -104,7 +104,7 @@ LightSource "spot" "color I" [0 0 255] "point from" [-2.0 3 -5] "point to" [-2.0
 # right
 # LightSource "spot" "color I" [255 172 129] "point from" [-5.0 3 -5] "point to" [-2.0 3 -3] "float coneangle" [50]
 # top
-LightSource "spot" "color I" [255 0 0] "point from" [-2.0 5 -5] "point to" [-2.0 3 -3] "float coneangle" [100] # 205 234 192
+LightSource "spot" "color I" [255 0 0] "point from" [-2.0 5 -1] "point to" [-2.0 3 -3] "float coneangle" [100] # 205 234 192
 # bottom
 # LightSource "spot" "color I" [239 233 174] "point from" [-2.0 1 -5] "point to" [-2.0 3 -3] "float coneangle" [50]
 
